@@ -1,0 +1,7 @@
+aiokafka==0.7.2
+beautifulsoup4==4.10.0
+fastapi==0.68.1
+kafka-python==2.0.2
+redis==3.5.3
+requests==2.26.0
+uvicorn==0.15.0
