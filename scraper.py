@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 import threading
 from urllib.parse import urlparse, urljoin
 from typing import List
@@ -11,7 +12,6 @@ from kafka import KafkaProducer, KafkaConsumer
 import redis
 from fastapi import FastAPI
 
-
 # Configure the logging module
 logging.basicConfig(
     level=logging.INFO,
@@ -21,6 +21,32 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
+
+
+def create_file(url, raw_html, output_dir="."):
+    # Create the filename by replacing special characters with underscores
+    filename = url.replace("/", "_").replace(":", "_").replace(".", "_")
+    filename += ".txt"
+
+    # Construct the full path to the file in the output directory
+    file_path = os.path.join(output_dir, filename)
+
+    # Write the URL and raw HTML to the file
+    with open(file_path, "w", encoding="utf-8") as file:
+        file.write(url + "\n")
+        file.write(raw_html)
+
+    return file_path
+
+
+def delete_file(file_path):
+    try:
+        os.remove(file_path)
+        print("File deleted successfully:", file_path)
+    except FileNotFoundError:
+        print("File not found:", file_path)
+    except Exception as e:
+        print("Error occurred while deleting the file:", str(e))
 
 
 class Scraper:
@@ -59,9 +85,13 @@ class Scraper:
         soup = BeautifulSoup(response.content, "html")
         raw_html = response.text
 
+        file_path = create_file(url, raw_html)
+
         print(f"save to S3 process, url:\t{url}")
         # Save the file to S3 - You should implement the logic to upload the file to S3 here
         # For example: self.upload_to_s3(url, raw_html)
+
+        delete_file(file_path)
 
         # Increment the urls_visited_count for the current initial_url
         urls_visited_key = f"urls_visited_count:{url}"
