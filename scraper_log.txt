@@ -4237,3 +4237,118 @@ kafka.errors.CommitFailedError: CommitFailedError: Commit cannot be completed si
 2023-07-17 15:07:42,333 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
 2023-07-17 15:08:04,282 [INFO] Closing the Kafka producer with 0 secs timeout.
 2023-07-17 15:08:04,282 [INFO] Proceeding to force close the producer since pending requests could not be completed within timeout 0.
+2023-07-17 15:15:02,755 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:15:02,757 [INFO] Probing node bootstrap-0 broker version
+2023-07-17 15:15:02,759 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:15:02,883 [INFO] Broker version identified as 2.5.0
+2023-07-17 15:15:02,884 [INFO] Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2023-07-17 15:15:02,902 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:15:02,904 [INFO] Probing node bootstrap-0 broker version
+2023-07-17 15:15:02,905 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:15:03,940 [INFO] Broker version identified as 2.5.0
+2023-07-17 15:15:03,941 [INFO] Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2023-07-17 15:15:03,943 [INFO] Updating subscribed topics to: ('new_urls',)
+2023-07-17 15:15:04,156 [INFO] Group coordinator for web_scraping_group is BrokerMetadata(nodeId='coordinator-1', host='kafka', port=9092, rack=None)
+2023-07-17 15:15:04,156 [INFO] Discovered coordinator coordinator-1 for group web_scraping_group
+2023-07-17 15:15:04,156 [INFO] Starting new heartbeat thread
+2023-07-17 15:15:04,158 [INFO] Revoking previously assigned partitions set() for group web_scraping_group
+2023-07-17 15:15:04,160 [INFO] <BrokerConnection node_id=coordinator-1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:15:04,163 [INFO] <BrokerConnection node_id=coordinator-1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:15:04,164 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
+2023-07-17 15:15:04,271 [INFO] (Re-)joining group web_scraping_group
+2023-07-17 15:15:07,281 [INFO] Elected group leader -- performing partition assignments using range
+2023-07-17 15:15:07,306 [INFO] <BrokerConnection node_id=1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:15:07,313 [INFO] <BrokerConnection node_id=1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:15:07,322 [INFO] Successfully joined group web_scraping_group with generation 19
+2023-07-17 15:15:07,323 [INFO] Updated partition assignment: [TopicPartition(topic='new_urls', partition=0)]
+2023-07-17 15:15:07,324 [INFO] Setting newly assigned partitions {TopicPartition(topic='new_urls', partition=0)} for group web_scraping_group
+2023-07-17 15:20:03,526 [INFO] <BrokerConnection node_id=1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:20:03,548 [INFO] <BrokerConnection node_id=1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:20:03,551 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
+2023-07-17 15:27:52,405 [INFO] Closing the Kafka producer with 0 secs timeout.
+2023-07-17 15:27:52,414 [INFO] Proceeding to force close the producer since pending requests could not be completed within timeout 0.
+2023-07-17 15:28:06,108 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:28:06,109 [INFO] Probing node bootstrap-0 broker version
+2023-07-17 15:28:06,111 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:28:06,223 [INFO] Broker version identified as 2.5.0
+2023-07-17 15:28:06,223 [INFO] Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2023-07-17 15:28:06,243 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:28:06,245 [INFO] Probing node bootstrap-0 broker version
+2023-07-17 15:28:06,246 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:28:06,367 [INFO] Broker version identified as 2.5.0
+2023-07-17 15:28:06,367 [INFO] Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2023-07-17 15:28:06,369 [INFO] Updating subscribed topics to: ('new_urls',)
+2023-07-17 15:28:06,587 [INFO] Group coordinator for web_scraping_group is BrokerMetadata(nodeId='coordinator-1', host='kafka', port=9092, rack=None)
+2023-07-17 15:28:06,588 [INFO] Discovered coordinator coordinator-1 for group web_scraping_group
+2023-07-17 15:28:06,588 [INFO] Starting new heartbeat thread
+2023-07-17 15:28:06,588 [INFO] Revoking previously assigned partitions set() for group web_scraping_group
+2023-07-17 15:28:06,590 [INFO] <BrokerConnection node_id=coordinator-1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:28:06,591 [INFO] <BrokerConnection node_id=coordinator-1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:28:06,591 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
+2023-07-17 15:28:06,708 [INFO] (Re-)joining group web_scraping_group
+2023-07-17 15:28:09,721 [INFO] Elected group leader -- performing partition assignments using range
+2023-07-17 15:28:09,727 [INFO] <BrokerConnection node_id=1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:28:09,728 [INFO] <BrokerConnection node_id=1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:28:09,735 [INFO] Successfully joined group web_scraping_group with generation 21
+2023-07-17 15:28:09,736 [INFO] Updated partition assignment: [TopicPartition(topic='new_urls', partition=0)]
+2023-07-17 15:28:09,737 [INFO] Setting newly assigned partitions {TopicPartition(topic='new_urls', partition=0)} for group web_scraping_group
+2023-07-17 15:28:38,210 [INFO] Found credentials in shared credentials file: ~/.aws/credentials
+2023-07-17 15:33:04,742 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:33:04,743 [INFO] Probing node bootstrap-0 broker version
+2023-07-17 15:33:04,744 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:33:04,868 [INFO] Broker version identified as 2.5.0
+2023-07-17 15:33:04,869 [INFO] Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2023-07-17 15:33:04,884 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:33:04,885 [INFO] Probing node bootstrap-0 broker version
+2023-07-17 15:33:04,886 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:33:05,011 [INFO] Broker version identified as 2.5.0
+2023-07-17 15:33:05,011 [INFO] Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2023-07-17 15:33:05,012 [INFO] Updating subscribed topics to: ('new_urls',)
+2023-07-17 15:33:05,228 [INFO] Group coordinator for web_scraping_group is BrokerMetadata(nodeId='coordinator-1', host='kafka', port=9092, rack=None)
+2023-07-17 15:33:05,229 [INFO] Discovered coordinator coordinator-1 for group web_scraping_group
+2023-07-17 15:33:05,230 [INFO] Starting new heartbeat thread
+2023-07-17 15:33:05,231 [INFO] Revoking previously assigned partitions set() for group web_scraping_group
+2023-07-17 15:33:05,234 [INFO] <BrokerConnection node_id=coordinator-1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:33:05,236 [INFO] <BrokerConnection node_id=coordinator-1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:33:05,238 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
+2023-07-17 15:33:05,344 [INFO] (Re-)joining group web_scraping_group
+2023-07-17 15:33:05,346 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:33:05,347 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:33:08,357 [INFO] Elected group leader -- performing partition assignments using range
+2023-07-17 15:33:08,361 [INFO] <BrokerConnection node_id=1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:33:08,363 [INFO] <BrokerConnection node_id=1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:33:08,364 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
+2023-07-17 15:33:08,367 [INFO] Successfully joined group web_scraping_group with generation 23
+2023-07-17 15:33:08,368 [INFO] Updated partition assignment: [TopicPartition(topic='new_urls', partition=0)]
+2023-07-17 15:33:08,368 [INFO] Setting newly assigned partitions {TopicPartition(topic='new_urls', partition=0)} for group web_scraping_group
+2023-07-17 15:34:19,566 [INFO] Found credentials in shared credentials file: ~/.aws/credentials
+2023-07-17 15:35:15,216 [INFO] Closing the Kafka producer with 0 secs timeout.
+2023-07-17 15:35:15,224 [INFO] Proceeding to force close the producer since pending requests could not be completed within timeout 0.
+2023-07-17 15:35:43,892 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:35:43,893 [INFO] Probing node bootstrap-0 broker version
+2023-07-17 15:35:43,894 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:35:44,012 [INFO] Broker version identified as 2.5.0
+2023-07-17 15:35:44,013 [INFO] Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2023-07-17 15:35:44,033 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:35:44,035 [INFO] Probing node bootstrap-0 broker version
+2023-07-17 15:35:44,037 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:35:44,155 [INFO] Broker version identified as 2.5.0
+2023-07-17 15:35:44,156 [INFO] Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2023-07-17 15:35:44,157 [INFO] Updating subscribed topics to: ('new_urls',)
+2023-07-17 15:35:44,371 [INFO] Group coordinator for web_scraping_group is BrokerMetadata(nodeId='coordinator-1', host='kafka', port=9092, rack=None)
+2023-07-17 15:35:44,372 [INFO] Discovered coordinator coordinator-1 for group web_scraping_group
+2023-07-17 15:35:44,372 [INFO] Starting new heartbeat thread
+2023-07-17 15:35:44,373 [INFO] Revoking previously assigned partitions set() for group web_scraping_group
+2023-07-17 15:35:44,376 [INFO] <BrokerConnection node_id=coordinator-1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:35:44,377 [INFO] <BrokerConnection node_id=coordinator-1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:35:44,377 [INFO] <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
+2023-07-17 15:35:44,490 [INFO] (Re-)joining group web_scraping_group
+2023-07-17 15:35:47,639 [INFO] Elected group leader -- performing partition assignments using range
+2023-07-17 15:35:47,660 [INFO] <BrokerConnection node_id=1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to kafka:9092 [('127.0.0.1', 9092) IPv4]
+2023-07-17 15:35:47,662 [INFO] <BrokerConnection node_id=1 host=kafka:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2023-07-17 15:35:47,685 [INFO] Successfully joined group web_scraping_group with generation 25
+2023-07-17 15:35:47,685 [INFO] Updated partition assignment: [TopicPartition(topic='new_urls', partition=0)]
+2023-07-17 15:35:47,686 [INFO] Setting newly assigned partitions {TopicPartition(topic='new_urls', partition=0)} for group web_scraping_group
+2023-07-17 15:36:04,283 [INFO] Found credentials in shared credentials file: ~/.aws/credentials
+2023-07-17 15:37:06,341 [INFO] Closing the Kafka producer with 0 secs timeout.
+2023-07-17 15:37:06,350 [INFO] Proceeding to force close the producer since pending requests could not be completed within timeout 0.

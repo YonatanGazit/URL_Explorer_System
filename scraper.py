@@ -206,18 +206,7 @@ async def start_scraping(initial_urls: List[str]):
     return {"message": "Scraping completed!"}
 
 
-@app.get("/file/{file_name}")
-async def read_file(file_name: str):
-    file_content = get_file_content_from_s3('yonatangazitwebscraper', file_name)
-    if file_content:
-        # Split the file content into 'raw url' and 'raw HTML'
-        raw_url, raw_html = file_content.split('\n', 1)
-        return {"raw_url": raw_url, "raw_html": raw_html}
-    else:
-        return {"error": "File not found"}
-
-
-@app.get("/file/")
+@app.get("/file_list/")
 async def read_files():
     # List all files in the S3 bucket
     s3_client = boto3.client('s3')
@@ -227,6 +216,17 @@ async def read_files():
         return {"files": file_list}
     else:
         return {"files": []}
+
+
+@app.get("/file_list/{file_name}")
+async def read_file(file_name: str):
+    file_content = get_file_content_from_s3('yonatangazitwebscraper', file_name)
+    if file_content:
+        # Split the file content into 'raw url' and 'raw HTML'
+        raw_url, raw_html = file_content.split('\n', 1)
+        return {"raw_url": raw_url, "raw_html": raw_html}
+    else:
+        return {"error": "File not found"}
 
 
 def run_kafka_consumer(scraper):

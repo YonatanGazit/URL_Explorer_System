@@ -48,6 +48,8 @@ Inside the files, the first row will be the 'raw URL string, and the second row 
 
 API Endpoints:
 --------------
+In your browser go to: "http://127.0.0.1:8000/docs" for connect to the FastAPI
+
 1. GET /:
    Description: The root endpoint that welcomes users to the Web Scraper API.
    Response: {"Hello": "Welcome to the Web Scraper API!"}
@@ -63,8 +65,13 @@ API Endpoints:
    }
    Response: {"message": "Scraping completed!"}
 
-3. GET /url/:
-   Retrieve stored URLs and their associated raw HTML content.
+3. GET /file_list/:
+Description: Retrieve a list of stored files in the S3 bucket.
+Response: Returns a list of file names available in the S3 bucket.
+
+4. GET /file_list/{file_name}:
+Description: Retrieve the stored file content from the S3 bucket for a specific file name.
+Response: Returns a JSON object with the 'raw_url' and 'raw_html' for the requested file.
 
 
 Please note that before running the Web Scraper, make sure to have Kafka and Redis up and running, and to configure the necessary connection details in the code.
