@@ -10,6 +10,7 @@ import uvicorn
 from bs4 import BeautifulSoup
 from kafka import KafkaProducer, KafkaConsumer
 import redis
+import boto3
 from fastapi import FastAPI
 
 # Configure the logging module
@@ -36,7 +37,7 @@ def create_file(url, raw_html, output_dir="."):
         file.write(url + "\n")
         file.write(raw_html)
 
-    return file_path
+    return file_path, filename
 
 
 def delete_file(file_path):
@@ -49,21 +50,29 @@ def delete_file(file_path):
         print("Error occurred while deleting the file:", str(e))
 
 
+def get_file_content_from_s3(bucket_name, file_name):
+    s3_client = boto3.client('s3')
+    try:
+        response = s3_client.get_object(Bucket=bucket_name, Key=file_name)
+        content = response['Body'].read().decode('utf-8')
+        return content
+    except Exception as e:
+        logging.error(f"Error retrieving file from S3: {e}")
+        return None
+
+
 class Scraper:
     def __init__(self):
-        self.max_depth = 4
-        self.max_urls = 3000
+        self.max_depth = 2
+        self.max_urls = 5
         self.max_time_in_sec = 30
         self.db_file = 'scraper.db'
         self.kafka_broker = 'kafka:9092'
         self.kafka_topic = 'new_urls'
         self.redis_client = redis.StrictRedis(host='localhost', port=6379, db=0)
         self.start_time = time.time()
-
+        self.bucket_name = 'yonatangazitwebscraper'
         self.producer = KafkaProducer(bootstrap_servers=self.kafka_broker)
-
-        # Connect to S3 - You should implement the S3 connection logic here
-        # For example: self.s3_client = boto3.client('s3', region_name='your_region')
 
     def start_scraping(self, initial_urls):
         for url in initial_urls:
@@ -85,11 +94,17 @@ class Scraper:
         soup = BeautifulSoup(response.content, "html")
         raw_html = response.text
 
-        file_path = create_file(url, raw_html)
+        file_path, file_name = create_file(url, raw_html)
 
         print(f"save to S3 process, url:\t{url}")
-        # Save the file to S3 - You should implement the logic to upload the file to S3 here
-        # For example: self.upload_to_s3(url, raw_html)
+        try:
+            s3_client = boto3.client('s3')
+            s3_client.upload_file(file_path, self.bucket_name, file_name)
+            # Print the URL of the uploaded file
+            file_url = f'https://{self.bucket_name}.s3.amazonaws.com/{file_name}'
+            logging.info(f"File uploaded successfully. URL: {file_url}")
+        except Exception as e:
+            logging.error(f"Error uploading file to S3: {e}")
 
         delete_file(file_path)
 
@@ -184,11 +199,34 @@ def read_root():
 
 
 @app.post("/scrape/")
-async def start_scraping(initial_urls: List[str], max_depth: int = 3, max_urls: int = 3000, max_time_in_sec: int = 180):
+async def start_scraping(initial_urls: List[str]):
     scraper = Scraper()
     scraper.start_scraping(initial_urls)
     scraper.cleanup()
     return {"message": "Scraping completed!"}
+
+
+@app.get("/file/{file_name}")
+async def read_file(file_name: str):
+    file_content = get_file_content_from_s3('yonatangazitwebscraper', file_name)
+    if file_content:
+        # Split the file content into 'raw url' and 'raw HTML'
+        raw_url, raw_html = file_content.split('\n', 1)
+        return {"raw_url": raw_url, "raw_html": raw_html}
+    else:
+        return {"error": "File not found"}
+
+
+@app.get("/file/")
+async def read_files():
+    # List all files in the S3 bucket
+    s3_client = boto3.client('s3')
+    response = s3_client.list_objects_v2(Bucket='yonatangazitwebscraper')
+    if 'Contents' in response:
+        file_list = [obj['Key'] for obj in response['Contents']]
+        return {"files": file_list}
+    else:
+        return {"files": []}
 
 
 def run_kafka_consumer(scraper):
