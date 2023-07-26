@@ -1,2 +1,5 @@
 URL_Explorer_System_Requirements.pdf
 logs
+__pycache__
+.idea
+venv
