@@ -2,7 +2,7 @@ Yonatan Gazit "URL Explorer System" - README
 
 System Architecture:
 --------------------
-![Diagram](Crawler_Architecture.drawio)
+![Diagram](Crawler_Architecture.drawio.png)
 
 The "URL Explorer System" is a distributed web scraping backend system that can collect unique URLs
 and their corresponding HTML content. It consists of several components working together:
