@@ -1,8 +1,8 @@
-Yonatan Gazit Web Scraper - README
+Yonatan Gazit "URL Explorer System" - README
 
 System Architecture:
 --------------------
-The Web Scraper is a distributed web scraping system that utilizes Kafka for message queueing and Redis for shared in memory storage.
+The "URL Explorer System" is a distributed web scraping backend system that calable to collects unique URLs and their corresponding HTML content.
 It consists of several components working together:
 
 1. Kafka: A message broker used for communication between the web scraper and the consumers.
@@ -42,7 +42,7 @@ c. max_time_in_sec
 
 Database Schema:
 ----------------
-Because raw HTML is an un-structure data format with no limited size, data is stored in a .txt file.
+Because raw HTML is a semi-structure data format with no limited size, data is stored in a .txt file.
 For each URL a corresponding file will emerge named {ASCII(URL)} in lowercase.
 Inside the files, the first row will be the 'raw URL string, and the second row will contain the 'raw HTML' (also a string)
 
