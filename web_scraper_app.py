@@ -24,7 +24,7 @@ async def start_scraping(initial_urls: List[str]):
 
 
 @app.get("/file_list/")
-async def read_files():
+async def get_files_list():
     # List all files in the S3 bucket
     s3_client = boto3.client('s3')
     response = s3_client.list_objects_v2(Bucket='yonatangazitwebscraper')
@@ -36,7 +36,7 @@ async def read_files():
 
 
 @app.get("/file_list/{file_name}")
-async def read_file(file_name: str):
+async def get_file(file_name: str):
     file_content = su.get_file_content_from_s3('yonatangazitwebscraper', file_name)
     if file_content:
         # Split the file content into 'raw url' and 'raw HTML'
@@ -46,13 +46,13 @@ async def read_file(file_name: str):
         return {"error": "File not found"}
 
 
-def run_kafka_consumer(scraper):
+def run_scraper(scraper):
     scraper.run_kafka_consumer()
 
 
 if __name__ == "__main__":
     # Start the Kafka consumer in a separate thread
-    consumer_thread = threading.Thread(target=run_kafka_consumer, args=(sc.Scraper(),))
+    consumer_thread = threading.Thread(target=run_scraper, args=(sc.Scraper(),))
     consumer_thread.daemon = True
     consumer_thread.start()
 
