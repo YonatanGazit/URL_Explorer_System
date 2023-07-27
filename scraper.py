@@ -31,9 +31,23 @@ class Scraper:
             self.scrape(url, depth=0)
 
     def scrape(self, url, depth):
+        # Check depth boundaries
         if depth > self.max_depth:
             scraper_log.logging.info(
-                f"current depth: {depth}\tmax depth: {self.max_depth}\tscrape will not be processed")
+                f"current depth: {depth}\tmax depth: {self.max_depth}. Stopping scraping.")
+            return
+
+        # Increment the urls_visited_count and check boundaries
+        urls_visited_key = "urls_visited_count"
+        self.redis_client.incr(urls_visited_key)
+        urls_visited_count = int(self.redis_client.get(urls_visited_key))
+        if urls_visited_count >= self.max_urls:
+            scraper_log.logging.info(f"Maximum number of URLs ({self.max_urls}) visited. Stopping scraping.")
+            return
+
+        # Check time boundaries
+        if self.max_time_in_sec and time.time() - self.start_time >= self.max_time_in_sec:
+            scraper_log.logging.info(f"Maximum time limit ({self.max_time_in_sec} seconds) reached. Stopping scraping.")
             return
 
         try:
@@ -59,19 +73,6 @@ class Scraper:
             scraper_log.logging.error(f"Error uploading file to S3: {e}")
 
         scraper_utils.delete_file(file_path)
-
-        # Increment the urls_visited_count for the current initial_url
-        urls_visited_key = "urls_visited_count"
-        self.redis_client.incr(urls_visited_key)
-
-        urls_visited_count = int(self.redis_client.get(urls_visited_key))
-        if urls_visited_count >= self.max_urls:
-            scraper_log.logging.info(f"Maximum number of URLs ({self.max_urls}) visited for {url}. Stopping scraping.")
-            return
-
-        if self.max_time_in_sec and time.time() - self.start_time >= self.max_time_in_sec:
-            scraper_log.logging.info(f"Maximum time limit ({self.max_time_in_sec} seconds) reached. Stopping scraping.")
-            return
 
         scraper_log.logging.info(f"Scraped {url}, depth={depth}")
 
