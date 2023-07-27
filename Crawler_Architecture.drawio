@@ -1,4 +1,4 @@
-<mxfile modified="2023-07-27T08:02:27.297Z" host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="L_0SDSHCI3g0D0a7X1HU" version="21.6.2" type="device">
+<mxfile modified="2023-07-27T08:05:50.596Z" host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="yWThIiisxrJT_HVfD-yx" version="21.6.2" type="device">
   <diagram id="Ht1M8jgEwFfnCIfOTk4-" name="Page-1">
     <mxGraphModel dx="1808" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -49,10 +49,10 @@
           <mxGeometry x="389" y="210" width="80" height="30" as="geometry" />
         </mxCell>
         <mxCell id="ILdBkcocvkYsyWNwg7cA-27" value="BFS Crawl" style="text;html=1;strokeColor=none;fillColor=default;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="471" y="75.5" width="97" height="30" as="geometry" />
+          <mxGeometry x="485" y="70.5" width="69" height="30" as="geometry" />
         </mxCell>
         <mxCell id="ILdBkcocvkYsyWNwg7cA-29" value="Visited Cache &amp;amp; Workers states" style="text;html=1;strokeColor=none;fillColor=default;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="666" y="60" width="180" height="30" as="geometry" />
+          <mxGeometry x="666" y="56" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="ILdBkcocvkYsyWNwg7cA-47" value="Crawler&lt;br&gt;Workers&lt;br&gt;Microservice" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/cluster_server.svg;" vertex="1" parent="1">
           <mxGeometry x="570" y="75.5" width="80" height="80" as="geometry" />
@@ -69,10 +69,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="ILdBkcocvkYsyWNwg7cA-55" value="Kafka" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=default;" vertex="1" parent="1">
-          <mxGeometry x="398" y="41.5" width="60" height="30" as="geometry" />
+          <mxGeometry x="398" y="39.5" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ILdBkcocvkYsyWNwg7cA-67" value="Save raw HTML in text file format&lt;br&gt;and enable fetching stored data" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="650" y="254" width="260" height="30" as="geometry" />
+        <mxCell id="ILdBkcocvkYsyWNwg7cA-67" value="Save raw HTML in text file format&lt;br&gt;and enable fetching stored data" style="text;html=1;strokeColor=none;fillColor=default;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="671" y="255" width="190" height="30" as="geometry" />
         </mxCell>
         <mxCell id="ILdBkcocvkYsyWNwg7cA-68" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;strokeColor=#808080;strokeWidth=2;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
