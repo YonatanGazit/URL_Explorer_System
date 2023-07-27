@@ -50,6 +50,14 @@ class Scraper:
             scraper_log.logging.info(f"Maximum time limit ({self.max_time_in_sec} seconds) reached. Stopping scraping.")
             return
 
+        # Check if a URL has already been visited
+        if self.redis_client.sismember("visited_urls", url):
+            scraper_log.logging.info(f"URL {url} has been visit already. Stopping scraping.")
+            return
+
+        # Mark a URL as visited
+        self.redis_client.sadd("visited_urls", url)
+
         try:
             response = requests.get(url)
             response.raise_for_status()
